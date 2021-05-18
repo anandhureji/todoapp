@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner">
+                <div class="banner-text">
+                    <h2>WELCOME TO TODO</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <br>
+    <br>
+    <div class="row">
+        <div class=" shadow col-md-6">
+            <br>
+            <h3>Enter Your Tasks</h3><br>
+
+<form method="POST">
+    {% csrf_token %}
+
+  <label for="name" class="form-label">Task</label>
+  <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Task"><br>
+    <label for="priority" class="form-label">Enter Your Priority</label>
+  <input type="integer" class="form-control" id="priority"  name="priority" ><br>
+        <label for="date" class="form-label">Enter The Date</label>
+    <input type="date" class="form-control" id="date"  name="date" ><br>
+    <input type="submit" placeholder="SUBMIT" class="btn btn-primary">
+
+</form>
+</div>
+
+
+
+<!--        <button type="submit" class="btn btn-primary mb-3"> Submit </button>-->
+
+
+        <div class="col-md-6">
+            <h3>Task to be completed</h3>
+            {% for i in task1 %}
+            <br>
+            <div class="shadow card">
+                <div class="card-body">
+
+                    <h5 class="card-title">Your Task: {{i.name}}</h5>
+                    <h6>Date: {{i.date}}</h6>
+                    <p><b></b>NO: {{i.priority}}</p>
+
+                    <a class="btn btn-danger" href="{% url 'todoapp:delete' i.id %}">done</a>
+                    <a class="btn btn-success" href="{% url 'todoapp:update' i.id %}">Edit</a>
+
+
+                </div>
+            </div>
+            {% endfor %}
+            <br>
+        </div>
+
+</div>
+    </div>
+</form>
+
+<!--{% for i in task1 %}-->
+<!--            <h6>id : {{i.id}}</h6></br>-->
+<!--            <h6> Name : {{i.name}}</h6><br>-->
+<!--            <h6>Priority :{{i.priority}}</h6><br>-->
+<!--{% endfor %}-->
+
+<!--{% endblock %}-->
+

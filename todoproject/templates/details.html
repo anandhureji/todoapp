@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<br>
+
+<div class="container">
+    <div class="row">
+        <table class="table table-dark">
+            <br><br>
+  <thead>
+  <br>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Priority</th>
+    </tr>
+  </thead>
+    {% for i in task %}
+  <tbody>
+    <tr>
+      <th scope="row">{{i.id}}</th>
+      <td>{{i.name}}</td>
+      <td>{{i.priority}}</td>
+
+    </tr>
+
+
+  </tbody>
+            {% endfor %}
+</table>
+
+<!--        <br class="col-md-6">-->
+<!--Welcome <br>-->
+<!--{% for i in task %}-->
+<!--            <h6>id : {{i.id}}</h6></br>-->
+<!--            <h6> Name : {{i.name}}</h6><br>-->
+<!--            <h6>Priority :{{i.priority}}</h6><br>-->
+<!--{% endfor %}-->
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
